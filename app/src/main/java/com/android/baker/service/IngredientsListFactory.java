@@ -5,7 +5,6 @@ import android.util.Log;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
-
 import com.android.baker.R;
 import com.android.baker.model.Ingredient;
 import com.android.baker.model.Recipe;
@@ -17,7 +16,7 @@ public class IngredientsListFactory implements RemoteViewsService.RemoteViewsFac
 
     public static final String TAG = IngredientsListFactory.class.getSimpleName();
     /**
-     * The RemoteViewsFactory acts as the adapter providing the data to the widget
+     * The RemoteViewsFactory acts as an adapter providing the data to the widget
      * Explanation for most of the methods in:
      * https://www.sitepoint.com/killer-way-to-show-a-list-of-items-in-android-collection-widget/
      */
@@ -27,14 +26,14 @@ public class IngredientsListFactory implements RemoteViewsService.RemoteViewsFac
 
     public IngredientsListFactory(Context context) {
         this.mContext = context;
-        ingredientsList= new ArrayList<>();
+        ingredientsList = new ArrayList<>();
 
     }
 
     @Override
     public void onCreate() {
-        recipe= Preferences.loadRecipe(mContext);
-        ingredientsList= recipe.getIngredientList();
+        recipe = Preferences.loadRecipe(mContext);
+        ingredientsList = recipe.getIngredientList();
 
     }
 
@@ -45,7 +44,7 @@ public class IngredientsListFactory implements RemoteViewsService.RemoteViewsFac
     public void onDataSetChanged() {
         recipe = Preferences.loadRecipe(mContext);
         Log.d(TAG, "Data is loaded from onDataSetChanged");
-        ingredientsList= recipe.getIngredientList();
+        ingredientsList = recipe.getIngredientList();
     }
 
     @Override
@@ -64,7 +63,7 @@ public class IngredientsListFactory implements RemoteViewsService.RemoteViewsFac
     @Override
     public RemoteViews getViewAt(int position) {
         RemoteViews rv = new RemoteViews(mContext.getPackageName(), R.layout.widget_list_item);
-        String ingredient= ingredientsList.get(position).getIngredient();
+        String ingredient = ingredientsList.get(position).getIngredient();
         rv.setTextViewText(R.id.widget_ingredients, ingredient);
         Log.d(TAG, "position: " + position
                 + ", Ingredient: " + ingredient);

@@ -4,9 +4,9 @@ import android.content.Intent;
 import android.util.Log;
 import android.widget.RemoteViewsService;
 
-public class RecipeWidgetService extends RemoteViewsService{
+public class RecipeWidgetService extends RemoteViewsService {
 
-    public final static String TAG= RecipeWidgetService.class.getSimpleName();
+    public final static String TAG = RecipeWidgetService.class.getSimpleName();
 
     @Override
     public RemoteViewsFactory onGetViewFactory(Intent intent) {

@@ -25,14 +25,15 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class RecipeStepsFragment extends Fragment implements RecipeStepsAdapter.StepClickListener{
+public class RecipeStepsFragment extends Fragment implements RecipeStepsAdapter.StepClickListener {
 
     private static final String LOG_TAG = RecipeStepsFragment.class.getSimpleName();
     private Recipe mRecipe;
     private String mRecipeName;
     private ArrayList<RecipeStep> mStepsList;
     private RecipeDetailsViewModel model;
-    @BindView(R.id.rv_recipe_steps) RecyclerView mRecyclerView;
+    @BindView(R.id.rv_recipe_steps)
+    RecyclerView mRecyclerView;
 
     public RecipeStepsFragment() {
     }
@@ -40,7 +41,7 @@ public class RecipeStepsFragment extends Fragment implements RecipeStepsAdapter.
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        model= ViewModelProviders.of(getActivity()).get(RecipeDetailsViewModel.class);
+        model = ViewModelProviders.of(getActivity()).get(RecipeDetailsViewModel.class);
 
     }
 
@@ -49,12 +50,12 @@ public class RecipeStepsFragment extends Fragment implements RecipeStepsAdapter.
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_recipe_steps, container, false);
-        ButterKnife.bind(this,view);
+        ButterKnife.bind(this, view);
         Bundle recipeBundle = this.getArguments();
         if (recipeBundle != null) {
             mRecipe = recipeBundle.getParcelable(MainActivity.RECIPE_KEY);
-            mRecipeName= mRecipe.getName();
-            mStepsList= mRecipe.getRecipeStepList();
+            mRecipeName = mRecipe.getName();
+            mStepsList = mRecipe.getRecipeStepList();
         }
         LinearLayoutManager layoutManager = new LinearLayoutManager(this.getActivity());
         mRecyclerView.setLayoutManager(layoutManager);
@@ -76,13 +77,13 @@ public class RecipeStepsFragment extends Fragment implements RecipeStepsAdapter.
 
     @Override
     public void onStepClick(int clickedItemIndex) {
-        int stepClickedIndex= clickedItemIndex -1;
+        int stepClickedIndex = clickedItemIndex - 1;
         model.setRecipe(mRecipe);
         model.setmRecipeStep(stepClickedIndex);
-        StepDetailsFragment detailsFragment= new StepDetailsFragment();
-        FragmentManager fragmentManager= getActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
-        if(isTablet(getActivity())){
+        StepDetailsFragment detailsFragment = new StepDetailsFragment();
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        if (isTablet(getActivity())) {
             fragmentTransaction.replace(R.id.fragment_container2, detailsFragment, null)
                     .addToBackStack(null)
                     .commit();
@@ -92,6 +93,7 @@ public class RecipeStepsFragment extends Fragment implements RecipeStepsAdapter.
                     .commit();
         }
     }
+
     public static boolean isTablet(Context context) {
         return (context.getResources().getConfiguration().screenLayout
                 & Configuration.SCREENLAYOUT_SIZE_MASK)

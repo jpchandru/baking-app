@@ -52,11 +52,16 @@ public class StepDetailsFragment extends Fragment {
     private String videoUrlString;
     private int mStepPosition;
     private boolean hasNoVideoUrl;
-    @BindView(R.id.tv_step_details) TextView descriptionTextVIew;
-    @BindView(R.id.playerView) PlayerView playerView;
-    @BindView(R.id.bt_previous_step) Button previousButton;
-    @BindView(R.id.bt_next_step) Button nextButton;
-    @BindDrawable(R.drawable.no_video_available) Drawable noVideoImage;
+    @BindView(R.id.tv_step_details)
+    TextView descriptionTextVIew;
+    @BindView(R.id.playerView)
+    PlayerView playerView;
+    @BindView(R.id.bt_previous_step)
+    Button previousButton;
+    @BindView(R.id.bt_next_step)
+    Button nextButton;
+    @BindDrawable(R.drawable.no_video_available)
+    Drawable noVideoImage;
 
     public StepDetailsFragment() {
     }
@@ -74,21 +79,20 @@ public class StepDetailsFragment extends Fragment {
             // video status check
             if (savedInstanceState.containsKey(PLAYER_STATE)) {
                 playerPosition = savedInstanceState.getLong(PLAYER_STATE);
-                mStepPosition= savedInstanceState.getInt("Step-Id");
-                isPlayerReady= savedInstanceState.getBoolean("isPlaying");
+                mStepPosition = savedInstanceState.getInt("Step-Id");
+                isPlayerReady = savedInstanceState.getBoolean("isPlaying");
                 Log.d(TAG, "The saved instance of the video is :"
                         + String.valueOf(playerPosition) + " for step : "
-                + String.valueOf(mStepPosition));
+                        + String.valueOf(mStepPosition));
             } else {
                 playerPosition = C.TIME_UNSET;
             }
 
         }
-            Bundle recipeBundle = this.getArguments();
-            if (recipeBundle != null) {
-                mRecipe = recipeBundle.getParcelable(MainActivity.RECIPE_KEY);
-            }
-        else {
+        Bundle recipeBundle = this.getArguments();
+        if (recipeBundle != null) {
+            mRecipe = recipeBundle.getParcelable(MainActivity.RECIPE_KEY);
+        } else {
             RecipeDetailsViewModel model = ViewModelProviders
                     .of(getActivity()).get(RecipeDetailsViewModel.class);
             mRecipe = model.getRecipe();
@@ -96,7 +100,7 @@ public class StepDetailsFragment extends Fragment {
         }
 
 
-        String recipe= mRecipe.getName();
+        String recipe = mRecipe.getName();
         Log.d(TAG, "The recipe name is: " + recipe);
         mStepsList = mRecipe.getRecipeStepList();
 
@@ -157,16 +161,16 @@ public class StepDetailsFragment extends Fragment {
     }
 
     private void toggleNextButton() {
-        if(mStepsList != null && mStepsList.size() > 0){
-            if(stepId == mStepsList.size() - 1) nextButton.setEnabled(false);
-            else if(stepId < mStepsList.size() - 1) nextButton.setEnabled(true);
+        if (mStepsList != null && mStepsList.size() > 0) {
+            if (stepId == mStepsList.size() - 1) nextButton.setEnabled(false);
+            else if (stepId < mStepsList.size() - 1) nextButton.setEnabled(true);
 
         }
     }
 
     private void togglePreviousButton() {
-        if(stepId == 0) previousButton.setEnabled(false);
-        else  if (stepId > 0) previousButton.setEnabled(true);
+        if (stepId == 0) previousButton.setEnabled(false);
+        else if (stepId > 0) previousButton.setEnabled(true);
     }
 
     private void initializePlayer(Uri uri) {
@@ -244,7 +248,7 @@ public class StepDetailsFragment extends Fragment {
         if (player != null) {
             // video position inorder to maintain post screen rotation
             playerPosition = player.getCurrentPosition();
-            isPlayerReady= player.getPlayWhenReady();
+            isPlayerReady = player.getPlayWhenReady();
             player.stop();
             player.release();
         }
@@ -253,8 +257,8 @@ public class StepDetailsFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        if((Util.SDK_INT <= 23 || player == null)){
-            if(videoUrlString != null) {
+        if ((Util.SDK_INT <= 23 || player == null)) {
+            if (videoUrlString != null) {
                 initializePlayer(Uri.parse(videoUrlString));
             }
         }

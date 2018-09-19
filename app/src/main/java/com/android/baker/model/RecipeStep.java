@@ -18,14 +18,15 @@ public class RecipeStep implements Parcelable {
     private static final String VIDEOURL = "videoURL";
     private static final String THUMBNAILURL = "thumbnailURL";
 
-    public RecipeStep(){}
+    public RecipeStep() {
+    }
 
     public RecipeStep(JSONObject jsonObj) throws Exception {
-        this.id= jsonObj.getInt(ID);
-        this.shortDescription= jsonObj.optString(SHORTDESCRIPTION);
-        this.detailedDescription= jsonObj.optString(DESCRIPTION);
-        this.videoUrl= jsonObj.optString(VIDEOURL);
-        this.thumbnailUrl= jsonObj.optString(THUMBNAILURL);
+        this.id = jsonObj.getInt(ID);
+        this.shortDescription = jsonObj.optString(SHORTDESCRIPTION);
+        this.detailedDescription = jsonObj.optString(DESCRIPTION);
+        this.videoUrl = jsonObj.optString(VIDEOURL);
+        this.thumbnailUrl = jsonObj.optString(THUMBNAILURL);
 
     }
 

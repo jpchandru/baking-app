@@ -23,13 +23,14 @@ public class Recipe implements Parcelable {
     private static final String IMAGE = "image";
 
 
-    public Recipe(){}
+    public Recipe() {
+    }
 
     public Recipe(JSONObject jsonObj) throws JSONException {
-        this.id= jsonObj.getInt(ID);
-        this.name= jsonObj.getString(NAME);
-        this.servings= jsonObj.getInt(SERVINGS);
-        this.image= jsonObj.getString(IMAGE);
+        this.id = jsonObj.getInt(ID);
+        this.name = jsonObj.getString(NAME);
+        this.servings = jsonObj.getInt(SERVINGS);
+        this.image = jsonObj.getString(IMAGE);
 
     }
 
@@ -78,7 +79,7 @@ public class Recipe implements Parcelable {
         return recipeStepList;
     }
 
-    public void setRecipeStepList( ArrayList<RecipeStep> recipeSteps) {
+    public void setRecipeStepList(ArrayList<RecipeStep> recipeSteps) {
         this.recipeStepList = recipeSteps;
     }
 
@@ -102,9 +103,9 @@ public class Recipe implements Parcelable {
         name = parcel.readString();
         servings = parcel.readInt();
         image = parcel.readString();
-        ingredientList= new ArrayList<>();
+        ingredientList = new ArrayList<>();
         parcel.readTypedList(ingredientList, Ingredient.CREATOR);
-        recipeStepList= new ArrayList<>();
+        recipeStepList = new ArrayList<>();
         parcel.readTypedList(recipeStepList, RecipeStep.CREATOR);
     }
 

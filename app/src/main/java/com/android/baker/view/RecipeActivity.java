@@ -20,8 +20,10 @@ public class RecipeActivity extends AppCompatActivity {
     static final String TOOLBAR_TITLE = "toolbar-title";
     private String mRecipeString;
 
-    @BindView(R.id.toolbar) Toolbar toolbar;
-    @BindView(R.id.recipe_container) View containerView;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+    @BindView(R.id.recipe_container)
+    View containerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -11,7 +11,7 @@ public class Ingredient implements Parcelable {
     private String measure;
     private String ingredient;
 
-    public Ingredient(JSONObject jsonObject){
+    public Ingredient(JSONObject jsonObject) {
         this.quantity = jsonObject.optInt("quantity");
         this.measure = jsonObject.optString("measure");
         this.ingredient = jsonObject.optString("ingredient");

@@ -20,7 +20,7 @@ public class Preferences {
         Gson gson = new Gson();
         String recipeJson = gson.toJson(recipe);
         sharedPreferences.putString(RECIPE, recipeJson);
-        Log.d(TAG,recipe.getName() + " was saved in SharedPreferences");
+        Log.d(TAG, recipe.getName() + " was saved in SharedPreferences");
         sharedPreferences.apply();
 
     }

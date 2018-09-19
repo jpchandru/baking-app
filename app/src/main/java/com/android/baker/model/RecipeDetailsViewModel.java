@@ -22,7 +22,7 @@ public class RecipeDetailsViewModel extends ViewModel {
         return mRecipeStep;
     }
 
-    public void setmRecipeStep(int recipeStep){
-        this.mRecipeStep= recipeStep;
+    public void setmRecipeStep(int recipeStep) {
+        this.mRecipeStep = recipeStep;
     }
 }

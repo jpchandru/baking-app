@@ -23,21 +23,21 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 @RunWith(AndroidJUnit4.class)
 public class MainActivityTest {
     @Rule
-    public ActivityTestRule<MainActivity> mActivityTestRule= new ActivityTestRule<>(MainActivity.class);
+    public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
 
     @Test
-    public void testToolbarTextPositive(){
+    public void testToolbarTextPositive() {
         onView(withId(R.id.toolbar)).check(matches(isDisplayed()));
         onView(withText("Baker")).check(matches(withParent(withId(R.id.toolbar))));
     }
 
     @Test
-    public void testToolbarTextNegative(){
+    public void testToolbarTextNegative() {
         onView(withText("Bake")).check(doesNotExist());
     }
 
     @Test
-    public void clickBrowniesItemPositive(){
+    public void clickBrowniesItemPositive() {
         try {
             Thread.sleep(1500);
         } catch (InterruptedException e) {
@@ -52,7 +52,7 @@ public class MainActivityTest {
     }
 
     @Test
-    public void clickBrowniesItemNegative(){
+    public void clickBrowniesItemNegative() {
         try {
             Thread.sleep(1500);
         } catch (InterruptedException e) {

@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
 import com.android.baker.R;
 import com.android.baker.model.Recipe;
 import com.squareup.picasso.Picasso;
@@ -26,10 +25,10 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
         void onRecipeClick(int clickedRecipeIndex);
     }
 
-    public RecipeAdapter(Context context, ArrayList<Recipe> recipesList, RecipeClickListener listener){
-        this.mContext= context;
-        this.mRecipesList= recipesList;
-        this.mOnClickListener= listener;
+    public RecipeAdapter(Context context, ArrayList<Recipe> recipesList, RecipeClickListener listener) {
+        this.mContext = context;
+        this.mRecipesList = recipesList;
+        this.mOnClickListener = listener;
     }
 
     @Override
@@ -46,10 +45,10 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
 
     @Override
     public int getItemCount() {
-        if(mRecipesList.size()!=0){
+        if (mRecipesList.size() != 0) {
             return mRecipesList.size();
         } else
-        return 0;
+            return 0;
     }
 
     class RecipeViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -68,15 +67,15 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
 
             recipeTitleTextVIew.setText(recipe.getName());
             // Check if there is a recipe image. If so, load it in the ImageView
-            String recipeImageString= recipe.getImage();
-            if(!recipeImageString.equals("")){
+            String recipeImageString = recipe.getImage();
+            if (!recipeImageString.equals("")) {
                 Picasso.get().load(recipeImageString).into(recipeImageView);
             }
         }
 
         @Override
         public void onClick(View v) {
-            int clickedPosition= getAdapterPosition();
+            int clickedPosition = getAdapterPosition();
             mOnClickListener.onRecipeClick(clickedPosition);
         }
     }
