@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    style="@style/RecipeCardView">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ingredients_title"
+        android:gravity="center"
+        style="@style/Base.TextAppearance.AppCompat.Headline"/>
+
+    <TextView
+        android:id="@+id/tv_ingredients_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="@string/ingredients_list_placeholder"
+        android:layout_marginLeft="@dimen/vertical_margin"/>
+</LinearLayout>

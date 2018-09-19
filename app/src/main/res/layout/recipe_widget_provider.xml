@@ -1,0 +1,28 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/widget_recipe_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/colorPrimaryDark"
+        android:contentDescription="@string/appwidget_recipe"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:text="@string/appwidget_recipe"
+        android:textColor="@android:color/black"
+        android:textSize="24sp" />
+
+    <ListView
+        android:id="@+id/widget_listview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+
+</LinearLayout>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:padding="8dp"
+    tools:context="com.android.baker.view.StepDetailsFragment">
+
+    <com.google.android.exoplayer2.ui.PlayerView
+        android:id="@+id/playerView"
+        style="@style/RecipeCardView"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginTop="?android:attr/actionBarSize"
+        android:background="@color/colorBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </com.google.android.exoplayer2.ui.PlayerView>
+
+    <TextView
+        android:id="@+id/tv_step_details"
+        style="@style/RecipeCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/step_details_margin"
+        android:layout_marginStart="@dimen/step_details_margin"
+        android:padding="@dimen/step_details_margin"
+        android:gravity="center"
+        android:text="@string/recipe_step_details_placeholder"
+        android:textSize="@dimen/step_description_text_size"
+        android:maxLines="3"
+        android:scrollbars="vertical"
+        app:layout_constraintEnd_toEndOf="@+id/playerView"
+        app:layout_constraintStart_toStartOf="@+id/playerView"
+        app:layout_constraintTop_toBottomOf="@id/playerView" />
+
+    <Button
+        android:id="@+id/bt_previous_step"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorButton"
+        android:elevation="@dimen/button_elevation"
+        android:padding="@dimen/button_padding"
+        android:text="@string/previous_step"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/bt_next_step"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorButton"
+        android:elevation="@dimen/button_elevation"
+        android:padding="@dimen/button_padding"
+        android:text="@string/next_step"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

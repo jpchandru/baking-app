@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/RecipeCardView"
+    android:layout_width="match_parent"
+    android:layout_height="136dp">
+
+    <ImageView
+        android:id="@+id/iv_recipe_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/tv_recipe_name"
+        style="@style/Base.TextAppearance.AppCompat.Headline"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        tools:text="Recipe Name Here" />
+</FrameLayout>
